@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev -H 0.0.0.0",
+    "dev": "next dev -H 0.0.0.0 -p 5000",
     "build": "next build",
     "prettier": "prettier -write .",
     "lint": "next lint"
@@ -26,6 +26,7 @@
     "@types/react": "18.2.61",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.1.1",
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "typescript": "5.3.3"
   }
 }
