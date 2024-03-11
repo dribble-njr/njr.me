@@ -132,9 +132,6 @@ const NavBar = ({ path }) => {
         <Menu isMenuOpen={false} path={path} isSideMenu={false} />
 
         <Box flex={1} display="flex" justifyContent="end">
-          {
-
-          }
           <Box
             as={IconButton}
             icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
@@ -142,10 +139,10 @@ const NavBar = ({ path }) => {
             variant="link"
           />
           <Box
-            display={{ base: 'block', md: 'none' }}
+            display={{ md: 'none' }}
             as={IconButton}
             icon={<HamburgerIcon />}
-            variant="outline"
+            variant="link"
             aria-label="Options"
             onClick={toggleNavbar}
           />
