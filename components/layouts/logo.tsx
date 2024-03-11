@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import { keyframes } from '@emotion/react'
-import { Box, usePrefersReducedMotion } from '@chakra-ui/react'
+import {
+  Box,
+  useColorModeValue,
+  usePrefersReducedMotion
+} from '@chakra-ui/react'
 import { FC } from 'react'
 
 const draw = keyframes`
@@ -46,7 +50,7 @@ const ChakraPath: FC<{
         opacity: 0,
 
         fill: 'none',
-        stroke: '#000',
+        stroke: useColorModeValue('#000', '#94a3b8'),
         strokeMiterlimit: 10,
         strokeWidth: 20,
         strokeLinecap: 'round'
@@ -87,7 +91,7 @@ const Logo = () => {
     <Link href="/" scroll={false}>
       <Box
         as="svg"
-        height="52px"
+        height="40px"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="-10 -15 700 620"
       >

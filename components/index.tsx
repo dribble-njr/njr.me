@@ -1,1 +1,3 @@
-export { default as Logo } from './logo'
+export const Demo = () => {
+  return <></>
+}

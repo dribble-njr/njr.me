@@ -1,6 +1,5 @@
 import { Box, Container, Heading } from '@chakra-ui/react'
 import Image from 'next/image'
-import { Logo } from '../components'
 
 export default function Page() {
   return (
@@ -21,7 +20,6 @@ export default function Page() {
             njr
           </Heading>
           <p>Enquanto houver 1% de chance, teremo 99% fé.</p>
-          <Logo />
         </Box>
 
         <Box
