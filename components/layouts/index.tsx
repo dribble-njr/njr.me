@@ -15,7 +15,7 @@ const LazyGLTFViewer = dynamic(() => import('../gltf-viewer'), {
   loading: () => <GLTFViewer url={urlGLTF} />
 })
 
-const Main = ({ children, router }) => {
+const Layout = ({ children, router }) => {
   return (
     <Box as="main" pb={8}>
       <Head>
@@ -34,4 +34,4 @@ const Main = ({ children, router }) => {
   )
 }
 
-export default Main
+export default Layout
