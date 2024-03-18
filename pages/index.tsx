@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Page() {
   return (
     <Container>
-      <Box
+      {/* <Box
         borderRadius="lg"
         mb={6}
         p={3}
@@ -47,7 +47,7 @@ export default function Page() {
           </Box>
         </Box>
       </Box>
-      <div>hello</div>
+      <div>hello</div> */}
     </Container>
   )
 }
