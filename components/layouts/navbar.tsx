@@ -25,7 +25,7 @@ const LinkItem = ({ href, path = '', target = '', children, ...props }) => {
       href={href}
       scroll={false}
       p={2}
-      bg={active ? 'grassTeal' : undefined}
+      textDecoration={active ? 'underline' : 'none'}
       color={active ? activeColor : inactiveColor}
       target={target}
       {...props}
