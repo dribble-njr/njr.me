@@ -1,14 +1,26 @@
-import { Box, Container, Heading } from '@chakra-ui/react'
+import { Box, Container, Heading, useColorModeValue } from '@chakra-ui/react'
 import Image from 'next/image'
+import { GLTFViewer } from '../components'
+import dynamic from 'next/dynamic'
+
+const urlGLTF = (process.env.NODE_ENV === 'production' ? '' : '') + '/dog.glb'
+
+const LazyGLTFViewer = dynamic(() => import('../components/gltf-viewer'), {
+  ssr: false,
+  loading: () => <GLTFViewer url={urlGLTF} />
+})
 
 export default function Page() {
   return (
     <Container>
-      {/* <Box
+      <LazyGLTFViewer url={urlGLTF} />
+
+      <Box
         borderRadius="lg"
         mb={6}
         p={3}
         textAlign="center"
+        bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         css={{ backdropFilter: 'blur(10px)' }}
       >
         Hello, I&apos;m an frontend developer!
@@ -47,7 +59,6 @@ export default function Page() {
           </Box>
         </Box>
       </Box>
-      <div>hello</div> */}
     </Container>
   )
 }

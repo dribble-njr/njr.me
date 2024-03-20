@@ -16,7 +16,8 @@ import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 const LinkItem = ({ href, path = '', target = '', children, ...props }) => {
   const active = path === href
-  const inactiveColor = useColorModeValue('gray200', 'whiteA')
+  const activeColor = useColorModeValue('gray.400', 'whiteAlpha.900')
+  const inactiveColor = useColorModeValue('gray.200', 'whiteAlpha.600')
 
   return (
     <Link
@@ -25,7 +26,7 @@ const LinkItem = ({ href, path = '', target = '', children, ...props }) => {
       scroll={false}
       p={2}
       bg={active ? 'grassTeal' : undefined}
-      color={active ? '#202023' : inactiveColor}
+      color={active ? activeColor : inactiveColor}
       target={target}
       {...props}
     >

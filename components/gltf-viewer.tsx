@@ -127,7 +127,7 @@ const GLTFViewer: FC<GLTFViewerProps> = ({ url }) => {
       camera.position.z += size.length() * 1
       camera.lookAt(center)
 
-      const scale = clientHeight * 0.005
+      const scale = clientHeight * 0.003
       object.scale.set(scale, scale, scale)
 
       controls.saveState()
@@ -163,10 +163,10 @@ const GLTFViewer: FC<GLTFViewerProps> = ({ url }) => {
     <Box
       ref={containerRef}
       m="auto"
-      mt={['-20px', '-60px', '-120px']}
+      mt={['0px', '-40px', '-100px']}
       mb={['-40px', '-140px', '-200px']}
-      w={[280, 480, 640]}
-      h={[280, 480, 640]}
+      w={'100%'}
+      h={['280px', '480px', '640px']}
       position="relative"
     >
       {loading && (

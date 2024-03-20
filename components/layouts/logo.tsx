@@ -50,7 +50,7 @@ const ChakraPath: FC<{
         opacity: 0,
 
         fill: 'none',
-        stroke: useColorModeValue('#000', '#94a3b8'),
+        stroke: useColorModeValue('#000', '#e5e5e6'),
         strokeMiterlimit: 10,
         strokeWidth: 20,
         strokeLinecap: 'round'
