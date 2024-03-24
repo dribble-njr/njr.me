@@ -2,14 +2,22 @@ import { readFile, readdir } from 'fs/promises'
 import matter from 'gray-matter'
 import { join } from 'path'
 import { Post } from '../../@interface/post'
+import { Box, Heading, Text } from '@chakra-ui/react'
+import { Link } from '../../components'
 
 export default function Posts({ posts }: { posts: Post[] }) {
   return (
-    <>
+    <Box mt={8}>
       {posts.map(post => (
-        <p key={post.slug}>{post.title}{post.date}{post.summary}</p>
+        <Link key={post.slug} p={3} href={'/posts/' + post.slug + '/'}>
+          <Box as={'article'}>
+            <Heading mb={2}>{post.title}</Heading>
+            <Text>{post.date}</Text>
+            <Text>{post.summary}</Text>
+          </Box>
+        </Link>
       ))}
-    </>
+    </Box>
   )
 }
 
