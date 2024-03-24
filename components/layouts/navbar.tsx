@@ -15,7 +15,7 @@ import Logo from './logo'
 import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 const LinkItem = ({ href, path = '', target = '', children, ...props }) => {
-  const active = path === href
+  const active = path.startsWith(href)
   const activeColor = useColorModeValue('gray.400', 'whiteAlpha.900')
   const inactiveColor = useColorModeValue('gray.200', 'whiteAlpha.600')
 
