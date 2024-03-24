@@ -33,14 +33,12 @@ const getPosts = async () => {
     const fileContent = fileContents[i]
     const { data } = matter(fileContent)
     const date = new Date(data.date).toISOString()
-    return { slug: entry, ...data, date } as Post
+    return { slug: entry.split('.')[0], ...data, date } as Post
   })
 
   posts.sort((a, b) => {
     return Date.parse(b.date) - Date.parse(a.date)
   })
-
-  console.log(fileContents, '===', posts)
 
   return posts
 }
