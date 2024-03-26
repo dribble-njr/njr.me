@@ -12,7 +12,13 @@ export default function Posts({ posts }: { posts: Post[] }) {
         <Link key={post.slug} p={3} href={'/posts/' + post.slug + '/'}>
           <Box as={'article'}>
             <Heading mb={2}>{post.title}</Heading>
-            <Text>{post.date}</Text>
+            <Text>
+              {new Date(post.date).toLocaleDateString('en', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+              })}
+            </Text>
             <Text>{post.summary}</Text>
           </Box>
         </Link>
