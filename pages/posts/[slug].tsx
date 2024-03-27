@@ -2,7 +2,9 @@ import { readFile, readdir } from 'fs/promises'
 import { join } from 'path'
 import matter from 'gray-matter'
 import { MetaData } from '../../@interface/post'
-import { Box, Heading, Text } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
+import ReactMarkdown from 'react-markdown'
 
 export default function Page({
   metaData,
@@ -14,7 +16,11 @@ export default function Page({
   return (
     <Box mt={8}>
       <Heading as="h1">Post: {metaData.title}</Heading>
-      <Text>{content}</Text>
+      <ReactMarkdown
+        components={ChakraUIRenderer()}
+        children={content}
+        skipHtml
+      />
     </Box>
   )
 }
