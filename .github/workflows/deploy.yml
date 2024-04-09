@@ -14,16 +14,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 8
           run_install: true
+
+      - name: Set node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: pnpm
 
       - name: Build Next.js app
         run: |-
