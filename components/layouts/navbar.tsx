@@ -82,7 +82,7 @@ const Menu = ({ isMenuOpen, path, isSideMenu }) => {
         >
           <NextLink href="/" scroll={false}>
             <Image
-              src="/images/avatar.jpeg"
+              src="images/avatar.jpeg"
               alt="Profile image"
               width="100"
               height="100"
