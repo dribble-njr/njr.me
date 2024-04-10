@@ -1,4 +1,5 @@
 import { Box, Spinner } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 import { FC, useCallback, useEffect, useRef, useState } from 'react'
 import {
   AmbientLight,
@@ -22,6 +23,7 @@ const GLTFViewer: FC<GLTFViewerProps> = ({ url }) => {
   const rendererRef = useRef<WebGLRenderer>()
   const cameraRef = useRef<PerspectiveCamera>()
   const reqIdRef = useRef<number>()
+  const { basePath } = useRouter()
 
   const [loading, setLoading] = useState(true)
 
@@ -36,7 +38,7 @@ const GLTFViewer: FC<GLTFViewerProps> = ({ url }) => {
       loader.setDRACOLoader(draco)
 
       loader.load(
-        url,
+        basePath + url,
         gltf => {
           const obj = gltf.scene || gltf.scenes[0]
           resolve(obj)
