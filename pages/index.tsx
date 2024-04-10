@@ -51,7 +51,7 @@ export default function Page() {
             overflow="hidden"
           >
             <Image
-              src="/images/avatar.jpeg"
+              src="images/avatar.jpeg"
               alt="Profile image"
               width="100"
               height="100"

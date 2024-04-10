@@ -10,6 +10,7 @@ if (isGitHubActions) {
   assetPrefix = `/${repo}/`
 }
 
+/** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
   swcMinify: true,
