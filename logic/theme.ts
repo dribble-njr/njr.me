@@ -40,8 +40,8 @@ const colors = {
 }
 
 const config: ThemeConfig = {
-  initialColorMode: 'system',
-  useSystemColorMode: false
+  initialColorMode: 'dark',
+  useSystemColorMode: true
 }
 
 const theme = extendTheme({ config, styles, components, fonts, colors })

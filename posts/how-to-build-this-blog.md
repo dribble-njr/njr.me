@@ -15,3 +15,25 @@ When I add this package in this project, I found it also occurs another error.It
 ## deploy
 
 ![20240409234634](https://raw.githubusercontent.com/dribble-njr/typora-njr/master/img/20240409234634.png)
+
+## color mode flashing
+
+I used the following color mode config:
+
+```js
+const config: ThemeConfig = {
+  initialColorMode: 'system',
+  useSystemColorMode: true
+}
+```
+
+It will want to know the color preference of a user upfront. But I use SSR so then changing color mode or init during hydration, and flashing happens.
+
+So It should [add color mode manager for ssr](https://chakra-ui.com/docs/styled-system/color-mode#add-colormodemanager-optional-for-ssr).
+
+But I deploy it on gh-pages that it can only used for static page. It can't use `getServerSideProps`.
+
+So we have two case to solve this:
+
+1. change deployment way
+2. don't set `initialColorMode` with `system`
