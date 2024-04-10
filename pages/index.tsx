@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { GLTFViewer } from '../components'
 import dynamic from 'next/dynamic'
 
-const urlGLTF = (process.env.NODE_ENV === 'production' ? '' : '') + '/dog.glb'
+const urlGLTF = '/dog.glb'
 
 const LazyGLTFViewer = dynamic(() => import('../components/gltf-viewer'), {
   ssr: false,
