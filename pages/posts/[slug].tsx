@@ -17,7 +17,7 @@ export default function Page({
 }) {
   return (
     <Box mt={8}>
-      <Heading as="h1">Post: {metaData.title}</Heading>
+      <Heading as="h2">Post: {metaData.title}</Heading>
       <ReactMarkdown
         components={ChakraUIRenderer({
           code: props => {

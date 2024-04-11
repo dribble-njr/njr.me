@@ -3,26 +3,28 @@ import matter from 'gray-matter'
 import { join } from 'path'
 import { Post } from '../../@interface/post'
 import { Box, Heading, Text } from '@chakra-ui/react'
-import { Link } from '../../components'
+import { Link, SlideEnter } from '../../components'
 
 export default function Posts({ posts }: { posts: Post[] }) {
   return (
     <Box mt={8}>
-      {posts.map(post => (
-        <Link key={post.slug} p={3} href={'/posts/' + post.slug + '/'}>
-          <Box as={'article'}>
-            <Heading mb={2}>{post.title}</Heading>
-            <Text>
-              {new Date(post.date).toLocaleDateString('en', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
-              })}
-            </Text>
-            <Text>{post.summary}</Text>
-          </Box>
-        </Link>
-      ))}
+      <SlideEnter>
+        {posts.map(post => (
+          <Link key={post.slug} p={3} href={'/posts/' + post.slug + '/'}>
+            <Box as={'article'}>
+              <Heading mb={2}>{post.title}</Heading>
+              <Text>
+                {new Date(post.date).toLocaleDateString('en', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric'
+                })}
+              </Text>
+              <Text>{post.summary}</Text>
+            </Box>
+          </Link>
+        ))}
+      </SlideEnter>
     </Box>
   )
 }
