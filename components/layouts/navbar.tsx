@@ -14,9 +14,9 @@ import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { usePathname } from 'next/navigation'
 
 const LinkItem = ({ href, path = '', target = '', children, ...props }) => {
-  const active = path.startsWith(href)
-  const activeColor = useColorModeValue('gray.400', 'whiteAlpha.900')
-  const inactiveColor = useColorModeValue('gray.200', 'whiteAlpha.600')
+  const active = path === href
+  const activeColor = useColorModeValue('#000', 'whiteAlpha.900')
+  const inactiveColor = useColorModeValue('#999999', 'whiteAlpha.600')
 
   return (
     <Link
@@ -24,7 +24,7 @@ const LinkItem = ({ href, path = '', target = '', children, ...props }) => {
       href={href}
       scroll={false}
       p={2}
-      textDecoration={active ? 'underline' : 'none'}
+      textDecoration="none"
       color={active ? activeColor : inactiveColor}
       target={target}
       {...props}
@@ -47,7 +47,11 @@ const Menu = ({ isMenuOpen, path, isSideMenu }) => {
       justifyContent="space-evenly"
       flex={1}
       mt={{ base: 4, md: 0 }}
+      bgColor="#fff"
     >
+      <LinkItem href="/" path={path}>
+        About
+      </LinkItem>
       <LinkItem href="/posts" path={path}>
         Posts
       </LinkItem>
