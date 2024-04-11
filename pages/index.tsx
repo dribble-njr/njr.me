@@ -2,6 +2,7 @@ import { Box, Container, Heading, useColorModeValue } from '@chakra-ui/react'
 import Image from 'next/image'
 import { GLTFViewer, SlideEnter } from '../components'
 import dynamic from 'next/dynamic'
+import { usePathname } from 'next/navigation'
 
 const urlGLTF = '/dog.glb'
 
@@ -11,6 +12,8 @@ const LazyGLTFViewer = dynamic(() => import('../components/gltf-viewer'), {
 })
 
 export default function Page() {
+  const pathname = usePathname()
+
   return (
     <Container>
       <LazyGLTFViewer url={urlGLTF} />
@@ -52,7 +55,7 @@ export default function Page() {
               overflow="hidden"
             >
               <Image
-                src="images/avatar.jpeg"
+                src={`${pathname}images/avatar.jpeg`}
                 alt="Profile image"
                 width="100"
                 height="100"
