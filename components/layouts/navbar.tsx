@@ -1,8 +1,6 @@
 import NextLink from 'next/link'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import {
-  Container,
   Box,
   Link,
   Stack,
@@ -13,6 +11,7 @@ import {
 } from '@chakra-ui/react'
 import Logo from './logo'
 import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { usePathname } from 'next/navigation'
 
 const LinkItem = ({ href, path = '', target = '', children, ...props }) => {
   const active = path.startsWith(href)
@@ -61,35 +60,6 @@ const Menu = ({ isMenuOpen, path, isSideMenu }) => {
       <LinkItem href="/demos" path={path}>
         Demos
       </LinkItem>
-
-      <Box
-        flexShrink={0}
-        display={{ base: 'fixed', md: 'none' }}
-        zIndex={2}
-        mt={{ base: 4, md: 0 }}
-        ml={{ md: 6 }}
-        textAlign="center"
-      >
-        <Box
-          borderColor="whiteAlpha.800"
-          borderWidth={2}
-          borderStyle="solid"
-          w="100px"
-          h="100px"
-          display="inline-block"
-          borderRadius="full"
-          overflow="hidden"
-        >
-          <NextLink href="/" scroll={false}>
-            <Image
-              src="images/avatar.jpeg"
-              alt="Profile image"
-              width="100"
-              height="100"
-            />
-          </NextLink>
-        </Box>
-      </Box>
     </Stack>
   )
 }
@@ -97,6 +67,7 @@ const Menu = ({ isMenuOpen, path, isSideMenu }) => {
 const NavBar = ({ path }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { colorMode, toggleColorMode } = useColorMode()
+  const pathname = usePathname()
 
   const toggleNavbar = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -108,6 +79,10 @@ const NavBar = ({ path }) => {
     setIsMenuOpen(false)
   }, [isPc])
 
+  useEffect(() => {
+    setIsMenuOpen(false)
+  }, [pathname])
+
   return (
     <Box
       as="nav"
@@ -117,12 +92,12 @@ const NavBar = ({ path }) => {
       css={{ backdropFilter: 'blur(10px)' }}
       zIndex={2}
     >
-      <Container
+      <Box
         display="flex"
         p={2}
         pl={{ base: 5 }}
         pr={{ base: 5 }}
-        maxW="container.md"
+        w="100%"
         alignItems="center"
         justifyContent="space-between"
       >
@@ -148,7 +123,7 @@ const NavBar = ({ path }) => {
             onClick={toggleNavbar}
           />
         </Box>
-      </Container>
+      </Box>
 
       <Menu isMenuOpen={isMenuOpen} path={path} isSideMenu />
     </Box>

@@ -129,7 +129,8 @@ const GLTFViewer: FC<GLTFViewerProps> = ({ url }) => {
       camera.position.z += size.length() * 1
       camera.lookAt(center)
 
-      const scale = clientHeight * 0.003
+      const scale =
+        clientHeight === 280 ? clientHeight * 0.01 : clientHeight * 0.003
       object.scale.set(scale, scale, scale)
 
       controls.saveState()
