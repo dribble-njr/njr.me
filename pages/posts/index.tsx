@@ -4,6 +4,7 @@ import { join } from 'path'
 import { Post } from '../../@interface/post'
 import { Box, Heading, Text } from '@chakra-ui/react'
 import { Link, SlideEnter } from '../../components'
+import { formatDate } from '../../logic/utils'
 
 export default function Posts({ posts }: { posts: Post[] }) {
   return (
@@ -15,14 +16,8 @@ export default function Posts({ posts }: { posts: Post[] }) {
               <Link href={'/posts/' + post.slug + '/'}>{post.title}</Link>
             </Heading>
 
-            <Box color={'#999'}>
-              <Text>
-                {new Date(post.date).toLocaleDateString('en', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric'
-                })}
-              </Text>
+            <Box className="text-muted">
+              <Text >{formatDate(post.date)}</Text>
               <Text>{post.summary}</Text>
             </Box>
           </Box>
