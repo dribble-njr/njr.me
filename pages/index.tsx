@@ -67,3 +67,5 @@ export default function Page() {
     </Container>
   )
 }
+
+export { getServerSideProps } from '../components'
