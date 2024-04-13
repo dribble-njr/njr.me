@@ -1,12 +1,11 @@
 import { readFile, readdir } from 'fs/promises'
 import { join } from 'path'
 import matter from 'gray-matter'
+import { Box, Heading, Text } from '@chakra-ui/react'
+
 import { MetaData } from '../../@interface/post'
-import { Box, Heading } from '@chakra-ui/react'
-import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
-import ReactMarkdown from 'react-markdown'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { duotoneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { formatDate } from '../../logic/utils'
+import { Markdown } from '../../components'
 
 export default function Page({
   metaData,
@@ -16,31 +15,17 @@ export default function Page({
   content: string
 }) {
   return (
-    <Box mt={8}>
-      <Heading as="h2">Post: {metaData.title}</Heading>
-      <ReactMarkdown
-        components={ChakraUIRenderer({
-          code: props => {
-            const { children, className, ...rest } = props
-            const match = /language-(\w+)/.exec(className || '')
-            return match ? (
-              <SyntaxHighlighter
-                {...rest}
-                PreTag="div"
-                children={String(children).replace(/\n$/, '')}
-                language={match[1]}
-                style={duotoneDark}
-              />
-            ) : (
-              <code {...rest} className={className}>
-                {children}
-              </code>
-            )
-          }
-        })}
-        children={content}
-        skipHtml
-      />
+    <Box mt={20}>
+      <Box>
+        <Heading as="h1">Post: {metaData.title}</Heading>
+        <Text className="text-muted">{formatDate(metaData.date)}</Text>
+
+        <blockquote>{metaData.summary}</blockquote>
+      </Box>
+
+      <Box>
+        <Markdown content={content} />
+      </Box>
     </Box>
   )
 }
