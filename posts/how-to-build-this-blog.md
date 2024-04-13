@@ -4,6 +4,10 @@ date: 2024-03-20
 summary: step by step, build the blog with next.js, chakra ui, three.js and etc.
 ---
 
+Let build a next.js blog like this.
+
+---
+
 ## tech stack
 
 ## markdown render

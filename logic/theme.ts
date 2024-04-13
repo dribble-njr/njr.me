@@ -5,6 +5,31 @@ const styles = {
   global: props => ({
     body: {
       bg: mode('#ffffff', '#202023')(props)
+    },
+    '.text-muted': {
+      color: mode('#999999', 'gray')(props)
+    },
+    blockquote: {
+      marginLeft: '-1.1em',
+      fontWeight: 400,
+      fontStyle: 'normal',
+      lineHeight: '1.6em',
+      padding: '.5em 1em',
+      borderLeftWidth: '.25rem',
+      borderColor: '#7d7d7d4d',
+      quotes: '"“" "”" "‘" "’"',
+      marginTop: '1.6em',
+      marginBottom: '1.6em',
+      backgroundColor: 'unset !important',
+      color: mode('#999999', 'gray')(props),
+
+      p: {
+        margin: '0px !important',
+        color: mode('#999999', 'gray')(props)
+      }
+    },
+    hr: {
+      margin: '2em auto'
     }
   })
 }
