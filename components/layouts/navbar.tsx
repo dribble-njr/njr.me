@@ -47,7 +47,7 @@ const Menu = ({ isMenuOpen, path, isSideMenu }) => {
       justifyContent="space-evenly"
       flex={1}
       mt={{ base: 4, md: 0 }}
-      bgColor={useColorModeValue('#ffffff40', '#20202380')}
+      bgColor={useColorModeValue('#ffffff', '#202023')}
     >
       <LinkItem href="/" path={path}>
         About
@@ -92,7 +92,7 @@ const NavBar = ({ path }) => {
       as="nav"
       position="fixed"
       w="100%"
-      bg={useColorModeValue('#ffffff40', '#20202380')}
+      bg={useColorModeValue('#ffffff', '#202023')}
       css={{ backdropFilter: 'blur(10px)' }}
       zIndex={2}
     >
