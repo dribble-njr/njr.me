@@ -14,7 +14,7 @@ import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { usePathname } from 'next/navigation'
 
 const LinkItem = ({ href, path = '', target = '', children, ...props }) => {
-  const active = path === href
+  const active = path === href || path.startsWith(`${href}/`)
   const activeColor = useColorModeValue('#000', 'whiteAlpha.900')
   const inactiveColor = useColorModeValue('#999999', 'whiteAlpha.600')
 
@@ -26,6 +26,7 @@ const LinkItem = ({ href, path = '', target = '', children, ...props }) => {
       p={2}
       textDecoration="none"
       color={active ? activeColor : inactiveColor}
+      _hover={{ color: active ? 'activeColor' : '#09f' }}
       target={target}
       {...props}
     >

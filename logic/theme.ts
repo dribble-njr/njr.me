@@ -25,8 +25,11 @@ const components = {
   },
   Link: {
     baseStyle: props => ({
-      color: mode('#3d7aed', '#ff63c3')(props),
-      textUnderlineOffset: 3
+      color: mode('#000', '#ff63c3')(props),
+      _hover: {
+        color: mode('#09f', '#fff')(props),
+        textDecoration: 'none'
+      }
     })
   }
 }

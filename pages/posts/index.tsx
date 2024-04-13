@@ -10,9 +10,12 @@ export default function Posts({ posts }: { posts: Post[] }) {
     <Box mt={8}>
       <SlideEnter>
         {posts.map(post => (
-          <Link key={post.slug} p={3} href={'/posts/' + post.slug + '/'}>
-            <Box as={'article'}>
-              <Heading mb={2}>{post.title}</Heading>
+          <Box as={'article'} key={post.slug} mt={'50px'}>
+            <Heading as={'h3'} mb={2} fontSize={24}>
+              <Link href={'/posts/' + post.slug + '/'}>{post.title}</Link>
+            </Heading>
+
+            <Box color={'#999'}>
               <Text>
                 {new Date(post.date).toLocaleDateString('en', {
                   day: 'numeric',
@@ -22,7 +25,7 @@ export default function Posts({ posts }: { posts: Post[] }) {
               </Text>
               <Text>{post.summary}</Text>
             </Box>
-          </Link>
+          </Box>
         ))}
       </SlideEnter>
     </Box>

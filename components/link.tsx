@@ -34,7 +34,6 @@ const Link: FC<LinkProps> = ({ children, href, target, ...rest }) => {
       transform={isNavigating ? 'scale(1)' : ''}
       opacity={isNavigating ? 0.85 : 1}
       transition={'transform 0.2s ease-in-out, opacity 0.2s 0.4s linear'}
-      _hover={{ textDecoration: 'none' }}
     >
       {children}
     </ChakraLink>
