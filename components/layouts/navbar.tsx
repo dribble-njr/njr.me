@@ -47,7 +47,7 @@ const Menu = ({ isMenuOpen, path, isSideMenu }) => {
       justifyContent="space-evenly"
       flex={1}
       mt={{ base: 4, md: 0 }}
-      bgColor="#fff"
+      bgColor={useColorModeValue('#ffffff40', '#20202380')}
     >
       <LinkItem href="/" path={path}>
         About
